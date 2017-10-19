@@ -1,0 +1,28 @@
+apply plugin: 'war'
+
+repositories {
+    jcenter()
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+
+    compile group: 'org.hibernate',
+            name: 'hibernate-core',
+            version: '5.2.11.Final'
+
+    compile group: 'org.hsqldb',
+            name: 'hsqldb',
+            version: '2.4.0'
+
+    compileOnly group: 'org.projectlombok',
+                name: 'lombok',
+                version: '1.16.18'
+}
+
+task runMain(type: JavaExec) {
+    main = 'main.Main'
+    classpath = sourceSets.main.runtimeClasspath
+}
