@@ -1,0 +1,63 @@
+apply plugin: 'war'
+
+repositories {
+    jcenter()
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+def springVersion = '5.0.0.RELEASE'
+def hibernateVersion = '5.2.11.Final'
+
+dependencies {
+
+    compile group: 'org.hibernate',
+            name: 'hibernate-core',
+            version: hibernateVersion
+
+    compile group: 'org.springframework',
+            name: 'spring-context',
+            version: springVersion
+
+    compile group: 'org.springframework',
+            name: 'spring-jdbc',
+            version: springVersion
+
+    compile group: 'org.springframework',
+            name: 'spring-orm',
+            version: springVersion
+
+    compile group: 'org.springframework',
+            name: 'spring-aop',
+            version: springVersion
+
+    compile group: 'org.aspectj',
+            name: 'aspectjweaver',
+            version: '1.8.9'
+
+    compile group: 'org.hibernate',
+            name: 'hibernate-core',
+            version: hibernateVersion
+
+    compile group: 'org.hsqldb',
+            name: 'hsqldb',
+            version: '2.4.0'
+
+    compile group: 'org.apache.logging.log4j',
+            name: 'log4j-api',
+            version: '2.9.1'
+
+    compile group: 'org.apache.logging.log4j',
+            name: 'log4j-core',
+            version: '2.9.1'
+
+    compileOnly group: 'org.projectlombok',
+                name: 'lombok',
+                version: '1.16.18'
+}
+
+task runMain(type: JavaExec) {
+    main = 'main.Main'
+    classpath = sourceSets.main.runtimeClasspath
+}
